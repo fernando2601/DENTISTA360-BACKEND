@@ -1,0 +1,6 @@
+@DENTISTA360_BACKEND_HostAddress = http://localhost:5080
+
+GET {{DENTISTA360_BACKEND_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
