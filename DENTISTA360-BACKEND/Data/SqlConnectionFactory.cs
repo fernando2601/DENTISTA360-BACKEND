@@ -1,5 +1,5 @@
 using System.Data;
-using System.Data.SqlClient;
+using Npgsql;
 
 namespace DENTISTA360_BACKEND.Data
 {
@@ -14,7 +14,7 @@ namespace DENTISTA360_BACKEND.Data
 
         public IDbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new NpgsqlConnection(_connectionString);
         }
     }
 }

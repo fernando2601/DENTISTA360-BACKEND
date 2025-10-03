@@ -18,9 +18,9 @@ namespace DENTISTA360_BACKEND.Repositories
             using var connection = _dbConnectionFactory.CreateConnection();
             
             const string sql = @"
-                SELECT u.Id, u.Nome, u.EnderecoId, u.Phone, u.Email, u.Cargo, u.Senha, u.CPF
-                FROM [User] u
-                WHERE u.Email = @Email";
+                SELECT u.""Id"", u.""Nome"", u.""EnderecoId"", u.""Phone"", u.""Email"", u.""Cargo"", u.""Senha"", u.""CPF""
+                FROM ""User"" u
+                WHERE u.""Email"" = @Email";
 
             return await connection.QueryFirstOrDefaultAsync<User>(sql, new { Email = email });
         }
@@ -30,9 +30,9 @@ namespace DENTISTA360_BACKEND.Repositories
             using var connection = _dbConnectionFactory.CreateConnection();
             
             const string sql = @"
-                SELECT u.Id, u.Nome, u.EnderecoId, u.Phone, u.Email, u.Cargo, u.Senha, u.CPF
-                FROM [User] u
-                WHERE u.Id = @Id";
+                SELECT u.""Id"", u.""Nome"", u.""EnderecoId"", u.""Phone"", u.""Email"", u.""Cargo"", u.""Senha"", u.""CPF""
+                FROM ""User"" u
+                WHERE u.""Id"" = @Id";
 
             return await connection.QueryFirstOrDefaultAsync<User>(sql, new { Id = id });
         }
@@ -42,9 +42,9 @@ namespace DENTISTA360_BACKEND.Repositories
             using var connection = _dbConnectionFactory.CreateConnection();
             
             const string sql = @"
-                SELECT c.Id, c.NomeFantasia, c.RazaoSocial, c.CNPJ, c.EnderecoId, c.Phone, c.Email, c.NomeResponsavel
-                FROM Clinica c
-                INNER JOIN user_clinic uc ON c.Id = uc.clinic_id
+                SELECT c.""Id"", c.""NomeFantasia"", c.""RazaoSocial"", c.""CNPJ"", c.""EnderecoId"", c.""Phone"", c.""Email"", c.""NomeResponsavel""
+                FROM ""Clinica"" c
+                INNER JOIN user_clinic uc ON c.""Id"" = uc.clinic_id
                 WHERE uc.user_id = @UserId";
 
             var result = await connection.QueryAsync<Clinica>(sql, new { UserId = userId });
