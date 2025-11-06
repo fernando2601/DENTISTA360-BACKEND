@@ -22,14 +22,14 @@ namespace DENTISTA360_BACKEND.Controllers
         }
 
         /// <summary>
-        /// Obtém informações do usuário logado e suas clínicas
+        /// Obtém informações do usuário logado e clínica base
         /// </summary>
-        /// <returns>Informações do usuário e clínicas associadas</returns>
+        /// <returns>Informações do usuário e clínica base associada</returns>
         /// <response code="200">Informações obtidas com sucesso</response>
         /// <response code="401">Token inválido ou expirado</response>
         /// <response code="404">Usuário não encontrado</response>
         [HttpGet("info")]
-        [ProducesResponseType(typeof(UserInfoResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ClinicBaseInfoResponse), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetUserInfo()
@@ -50,18 +50,27 @@ namespace DENTISTA360_BACKEND.Controllers
                 }
 
                 var clinicas = await _userRepository.GetUserClinicsAsync(userId);
+                
+                // Retorna a primeira clínica ou uma clínica padrão
+                var primeiraClinica = clinicas.FirstOrDefault();
 
-                var response = new UserInfoResponse
+                var response = new ClinicBaseInfoResponse
                 {
                     User = new UserInfo
                     {
                         Nome = user.Nome
                     },
-                    Clinicas = clinicas.Select(c => new ClinicaInfo
-                    {
-                        Id = c.Id,
-                        NomeFantasia = c.NomeFantasia
-                    }).ToList()
+                    ClinicBaseInfo = primeiraClinica != null 
+                        ? new ClinicBasicInfo
+                        {
+                            Id = primeiraClinica.Id.ToString(),
+                            NomeFantasia = primeiraClinica.NomeFantasia
+                        }
+                        : new ClinicBasicInfo
+                        {
+                            Id = "0",
+                            NomeFantasia = "Nenhuma clínica associada"
+                        }
                 };
 
                 return Ok(response);

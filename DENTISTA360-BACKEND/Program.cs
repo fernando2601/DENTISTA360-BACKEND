@@ -10,7 +10,12 @@ using DENTISTA360_BACKEND.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
 
 // Database connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -19,6 +24,7 @@ builder.Services.AddSingleton<IDbConnectionFactory>(provider => new SqlConnectio
 // Register repositories and services
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ISignupService, SignupService>();
 
 // JWT Authentication
 var jwtSettings = builder.Configuration.GetSection("JWT");
@@ -92,14 +98,15 @@ builder.Services.AddSwaggerGen(c =>
     }
 });
 
-// CORS (if needed)
+// CORS
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:3000", "http://localhost:4200", "https://localhost:3000", "https://localhost:4200")
               .AllowAnyMethod()
-              .AllowAnyHeader();
+              .AllowAnyHeader()
+              .AllowCredentials();
     });
 });
 
@@ -118,7 +125,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowAll");
+app.UseCors("AllowFrontend");
 
 app.UseAuthentication();
 app.UseAuthorization();

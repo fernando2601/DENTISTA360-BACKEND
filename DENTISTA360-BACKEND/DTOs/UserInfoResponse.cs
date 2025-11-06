@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace DENTISTA360_BACKEND.DTOs
 {
     public class UserInfoResponse
@@ -14,6 +16,7 @@ namespace DENTISTA360_BACKEND.DTOs
 
     public class UserInfo
     {
+        [JsonPropertyName("nome")]
         public string Nome { get; set; } = string.Empty;
     }
 }
