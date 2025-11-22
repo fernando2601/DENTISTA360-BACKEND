@@ -1,10 +1,12 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using BCrypt.Net;
 using DENTISTA360_BACKEND.Models;
-using DENTISTA360_BACKEND.Repositories;
+using DENTISTA360_BACKEND.Models;
+using Domain.Repositories;
 
 namespace DENTISTA360_BACKEND.Services
 {

@@ -1,4 +1,4 @@
-using DENTISTA360_BACKEND.DTOs;
+using Application.DTOs;
 
 namespace DENTISTA360_BACKEND.Services
 {

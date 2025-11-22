@@ -3,8 +3,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text;
-using DENTISTA360_BACKEND.Data;
-using DENTISTA360_BACKEND.Repositories;
+using Application.Data;
+using Infrastructure.Data;
+using Domain.Repositories;
+using Infrastructure.Repositories;
 using DENTISTA360_BACKEND.Services;
 
 var builder = WebApplication.CreateBuilder(args);

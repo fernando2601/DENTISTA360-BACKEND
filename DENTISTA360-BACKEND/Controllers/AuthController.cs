@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using DENTISTA360_BACKEND.DTOs;
+using Application.DTOs;
 using DENTISTA360_BACKEND.Services;
 
 namespace DENTISTA360_BACKEND.Controllers

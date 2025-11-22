@@ -1,7 +1,8 @@
+using Application.Data;
+using Npgsql;
 using System.Data;
-using System.Data.SqlClient;
 
-namespace DENTISTA360_BACKEND.Data
+namespace Infrastructure.Data
 {
     public class SqlConnectionFactory : IDbConnectionFactory
     {
@@ -14,7 +15,7 @@ namespace DENTISTA360_BACKEND.Data
 
         public IDbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new NpgsqlConnection(_connectionString);
         }
     }
 }

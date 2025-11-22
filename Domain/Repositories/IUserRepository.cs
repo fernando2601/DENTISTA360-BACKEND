@@ -1,6 +1,6 @@
 using DENTISTA360_BACKEND.Models;
 
-namespace DENTISTA360_BACKEND.Repositories
+namespace Domain.Repositories
 {
     public interface IUserRepository
     {

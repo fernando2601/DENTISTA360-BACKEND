@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using DENTISTA360_BACKEND.DTOs;
-using DENTISTA360_BACKEND.Repositories;
+using Application.DTOs;
+using Domain.Repositories;
 
 namespace DENTISTA360_BACKEND.Controllers
 {

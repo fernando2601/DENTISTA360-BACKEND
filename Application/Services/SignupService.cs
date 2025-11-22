@@ -1,6 +1,6 @@
 using Dapper;
-using DENTISTA360_BACKEND.Data;
-using DENTISTA360_BACKEND.DTOs;
+using Application.Data;
+using Application.DTOs;
 using DENTISTA360_BACKEND.Models;
 using DENTISTA360_BACKEND.Services;
 

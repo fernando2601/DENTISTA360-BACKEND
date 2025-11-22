@@ -1,4 +1,4 @@
-namespace DENTISTA360_BACKEND.DTOs
+namespace Application.DTOs
 {
     public class SignupResponse
     {

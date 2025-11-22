@@ -1,8 +1,9 @@
 using Dapper;
-using DENTISTA360_BACKEND.Data;
+using Application.Data;
 using DENTISTA360_BACKEND.Models;
+using Domain.Repositories;
 
-namespace DENTISTA360_BACKEND.Repositories
+namespace Infrastructure.Repositories
 {
     public class UserRepository : IUserRepository
     {

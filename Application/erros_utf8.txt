@@ -1,0 +1,8 @@
+﻿C:\Users\fernando.neri\source\DENTISTA360-BACKEND\Application\Services\AuthService.cs(15,26): error CS0246: O nome do tipo ou do namespace "IConfiguration" n├úo pode ser encontrado (est├í faltando uma diretiva using ou uma refer├¬ncia de assembly?) [C:\Users\fernando.neri\source\DENTISTA360-BACKEND\Application\Application.csproj]
+C:\Users\fernando.neri\source\DENTISTA360-BACKEND\Application\Services\AuthService.cs(17,60): error CS0246: O nome do tipo ou do namespace "IConfiguration" n├úo pode ser encontrado (est├í faltando uma diretiva using ou uma refer├¬ncia de assembly?) [C:\Users\fernando.neri\source\DENTISTA360-BACKEND\Application\Application.csproj]
+
+FALHA da compila├º├úo.
+    1 Aviso(s)
+    2 Erro(s)
+
+Tempo Decorrido 00:00:01.23

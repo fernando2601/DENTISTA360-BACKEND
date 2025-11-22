@@ -1,6 +1,6 @@
 using System.Data;
 
-namespace DENTISTA360_BACKEND.Data
+namespace Application.Data
 {
     public interface IDbConnectionFactory
     {

@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace DENTISTA360_BACKEND.DTOs
+namespace Application.DTOs
 {
     public class LoginRequest
     {
